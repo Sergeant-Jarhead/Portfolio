@@ -12,20 +12,20 @@
 <script src="pdf-slides.js"></script>
 <script src="_ds/nocturne-897a95d7-965f-4e44-905d-652f7664a635/_ds_bundle.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&amp;family=Archivo:wght@700&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
-<style>body{margin:0;overflow:hidden;background:#fcfcfa;color:var(--color-text);font-family:var(--font-body)} a{color:var(--color-accent-300)} a:hover{color:var(--color-accent-200)}</style>
+<style>body,body *{cursor:url('assets/pencil-cursor5.png') 6 6,auto !important} body{margin:0;overflow:hidden;background:#fcfcfa;color:var(--color-text);font-family:var(--font-body)} a{color:var(--color-accent-300)} a:hover{color:var(--color-accent-200)}</style>
 </helmet>
 <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
 <div style="position:fixed;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;background:url('canvas-weave.svg') 0 0/6px 6px,#fcfcfa;color:#1a3fd6;font-family:'Nunito',var(--font-body)">
-  <div style="position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 16px;background:rgba(252,252,250,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(26,63,214,.12)">
-    <div style="font-size:19px;font-family:'Beth Ellen',var(--font-body);white-space:nowrap">Jared Sim</div>
-    <div style="display:flex;gap:2px">
-      <button onClick="{{ goWork }}" style="background:{{ workBg }};border:0;color:#1a3fd6;font:700 14px 'Nunito',var(--font-body);min-height:44px;padding:0 12px;border-radius:999px;cursor:pointer">Work</button>
-      <button onClick="{{ goAbout }}" style="background:{{ aboutBg }};border:0;color:#1a3fd6;font:700 14px 'Nunito',var(--font-body);min-height:44px;padding:0 12px;border-radius:999px;cursor:pointer">About</button>
-      <button onClick="{{ goContact }}" style="background:{{ contactBg }};border:0;color:#1a3fd6;font:700 14px 'Nunito',var(--font-body);min-height:44px;padding:0 12px;border-radius:999px;cursor:pointer">Contact</button>
+  <div style="position:sticky;top:0;z-index:10;display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 20px 6px;background:#fcfcfa">
+    <div style="font-size:22px;line-height:1.5;font-family:'Beth Ellen',var(--font-body);white-space:nowrap">Jared Sim</div>
+    <div style="display:flex;justify-content:center;gap:28px">
+      <button onClick="{{ goWork }}" style="background:none;border:0;color:{{ workFg }};font-size:17px;line-height:1.3;font-family:'Beth Ellen',var(--font-body);min-height:44px;padding:0 6px;cursor:pointer;white-space:nowrap">Work</button>
+      <button onClick="{{ goAbout }}" style="background:none;border:0;color:{{ aboutFg }};font-size:17px;line-height:1.3;font-family:'Beth Ellen',var(--font-body);min-height:44px;padding:0 6px;cursor:pointer;white-space:nowrap">About</button>
+      <button onClick="{{ goContact }}" style="background:none;border:0;color:{{ contactFg }};font-size:17px;line-height:1.3;font-family:'Beth Ellen',var(--font-body);min-height:44px;padding:0 6px;cursor:pointer;white-space:nowrap">Contact</button>
     </div>
   </div>
   <sc-if value="{{ mWork }}" hint-placeholder-val="{{ true }}">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 20px 8px;text-align:center">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:40px 24px 24px;text-align:center">
       <svg viewBox="40 90 440 390" width="170" height="151" style="display:block;overflow:visible">
         <ellipse cx="256" cy="302" rx="142" ry="137" fill="#fcfcfa"></ellipse>
         <ellipse cx="250" cy="172" rx="116" ry="82" fill="#fcfcfa"></ellipse>
@@ -35,19 +35,17 @@
         <ellipse cx="186" cy="281" rx="9.5" ry="{{ pupRy }}" fill="#1a3fd6"></ellipse>
         <ellipse cx="282" cy="277" rx="9.5" ry="{{ pupRy }}" fill="#1a3fd6"></ellipse>
       </svg>
-      <h1 style="margin:0;font-size:40px;font-weight:400;line-height:1.4;font-family:'Beth Ellen',var(--font-body)">{{ mHead }}</h1>
-      <p style="margin:0;max-width:440px;font-size:16px;line-height:1.55;text-wrap:pretty">{{ mDesc }}</p>
     </div>
-    <div style="position:sticky;top:69px;z-index:5;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:12px 16px;background:rgba(252,252,250,.94)">
+    <div style="position:sticky;top:98px;z-index:5;display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;padding:8px 24px 14px;background:#fcfcfa;box-shadow:0 14px 14px -4px #fcfcfa">
       <sc-for list="{{ mChips }}" as="c" hint-placeholder-count="6">
-        <button onClick="{{ c.pick }}" style="flex:none;display:flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1.5px solid #1a3fd6;border-radius:999px;background:{{ c.bg }};color:{{ c.fg }};font:700 14px 'Nunito',var(--font-body);cursor:pointer;white-space:nowrap">{{ c.disc }}<span style="font:700 11px ui-monospace,Menlo,monospace;opacity:.7">{{ c.count }}</span></button>
+        <button onClick="{{ c.pick }}" style="flex:none;background:none;border:0;min-height:44px;padding:0 4px;color:{{ c.fg }};font-size:20px;line-height:1.3;font-family:'Beth Ellen',var(--font-body);cursor:pointer;white-space:nowrap">{{ c.disc }}</button>
       </sc-for>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;padding:8px 16px 48px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:36px;padding:20px 24px 64px">
       <sc-for list="{{ mCards }}" as="p" hint-placeholder-count="4">
         <button onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:6px;text-align:left;background:none;border:0;padding:0;color:#4a5fc1;cursor:pointer;font-family:inherit">
           <span style="display:block;width:100%;aspect-ratio:23/15;border-radius:8px;background:{{ p.thumb }}"></span>
-          <span style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;color:#1a3fd6"><span style="font-size:22px;line-height:1.5;font-family:'Beth Ellen',var(--font-body)">{{ p.title }}</span><span style="font:700 12px ui-monospace,Menlo,monospace;color:#4a5fc1;flex:none">{{ p.n }}</span></span>
+          <span style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;color:#1a3fd6"><span style="font-size:22px;line-height:1.5;font-family:'Beth Ellen',var(--font-body)">{{ p.title }}</span></span>
           <span style="font:600 13px/1.3 'Nunito',var(--font-body)">{{ p.tagLine }}</span>
         </button>
       </sc-for>
@@ -57,19 +55,22 @@
     <div style="display:flex;flex-direction:column;gap:16px;padding:28px 20px 48px;max-width:560px">
       <h1 style="margin:0;font-size:40px;font-weight:400;line-height:1.4;font-family:'Beth Ellen',var(--font-body)">About me</h1>
       <div style="position:relative;align-self:center;width:220px;padding:8px 8px 32px;background:#fff;border-radius:4px;transform:rotate(2.5deg);box-shadow:0 1px 2px rgba(0,0,0,.08),0 18px 36px -20px rgba(26,63,214,.4)">
-        <img src="assets/jared-about.jpg" alt="Jared at a desk with prototypes and tools" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:2px">
+        <div onClick="{{ toggleDoodle }}" onMouseMove="{{ doodleMove }}" style="position:relative;width:100%;aspect-ratio:2/3;overflow:hidden;border-radius:2px;cursor:pointer"><img src="assets/jared-about-plain.png" alt="Jared at a desk with prototypes and tools" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.07);transform-origin:80% 40%"><img src="assets/jared-about-doodle.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.07);transform-origin:80% 40%;clip-path:{{ doodleClip }};transition:clip-path 2.6s cubic-bezier(.45,0,.25,1)"><img ref="{{ hoverRef }}" src="assets/jared-about-doodle.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.07);transform-origin:80% 40%;pointer-events:none;-webkit-mask-image:linear-gradient(transparent,transparent);mask-image:linear-gradient(transparent,transparent)"></div>
         <div style="position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:16px;font-family:'Beth Ellen',var(--font-body)">that’s me!</div>
       </div>
       <p style="margin:0;font-size:16px;line-height:1.6;text-wrap:pretty">I’m Jared, a designer based in Singapore, and I’m a lot of “-ers”. A listener and an observer first: I work closely with users to pick up the behaviours and needs they don’t say out loud. Then a communicator, an iterator and a tinkerer, testing ideas early and often until something unexpected turns up. It’s a simple way of working, but it’s how I naturally get along with people, and it lands on solutions that solve the client’s real problem without compromise.</p>
+      <div style="display:flex;flex-direction:column;gap:24px;margin-top:12px">
+      </div>
     </div>
   </sc-if>
   <sc-if value="{{ mContact }}" hint-placeholder-val="{{ false }}">
     <div style="display:flex;flex-direction:column;gap:12px;padding:28px 20px 48px;max-width:560px">
       <h1 style="margin:0;font-size:40px;font-weight:400;line-height:1.4;font-family:'Beth Ellen',var(--font-body)">Contact me</h1>
       <p style="margin:0 0 8px;font-size:16px;line-height:1.55">Find more of my work and get in touch here.</p>
+      <a href="mailto:studiojarhead@gmail.com" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:0 16px;border:1px solid rgba(26,63,214,.35);border-radius:10px;color:#1a3fd6;text-decoration:none"><span style="width:28px;height:28px;flex:none;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/regular/envelope.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/regular/envelope.svg') center/contain no-repeat"></span><span style="flex:1;font-size:20px;font-family:'Beth Ellen',var(--font-body)">Email</span><span style="font:700 13px 'Nunito',var(--font-body);color:#4a5fc1">studiojarhead@gmail.com</span></a>
       <a href="https://www.linkedin.com/in/sim-jared/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:0 16px;border:1px solid rgba(26,63,214,.35);border-radius:10px;color:#1a3fd6;text-decoration:none"><span style="width:28px;height:28px;flex:none;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/linkedin.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/linkedin.svg') center/contain no-repeat"></span><span style="flex:1;font-size:20px;font-family:'Beth Ellen',var(--font-body)">LinkedIn</span><span style="font:700 13px 'Nunito',var(--font-body);color:#4a5fc1">sim-jared</span></a>
-      <a href="https://www.instagram.com/captain_arthead/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:0 16px;border:1px solid rgba(26,63,214,.35);border-radius:10px;color:#1a3fd6;text-decoration:none"><span style="width:28px;height:28px;flex:none;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat"></span><span style="flex:1;font-size:20px;font-family:'Beth Ellen',var(--font-body)">Instagram</span><span style="font:700 13px 'Nunito',var(--font-body);color:#4a5fc1">@captain_arthead</span></a>
       <a href="https://www.behance.net/jaredsim1" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:0 16px;border:1px solid rgba(26,63,214,.35);border-radius:10px;color:#1a3fd6;text-decoration:none"><span style="width:28px;height:28px;flex:none;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/behance.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/behance.svg') center/contain no-repeat"></span><span style="flex:1;font-size:20px;font-family:'Beth Ellen',var(--font-body)">Behance</span><span style="font:700 13px 'Nunito',var(--font-body);color:#4a5fc1">jaredsim1</span></a>
+      <a href="https://www.instagram.com/captain_arthead/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:0 16px;border:1px solid rgba(26,63,214,.35);border-radius:10px;color:#1a3fd6;text-decoration:none"><span style="width:28px;height:28px;flex:none;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat"></span><span style="flex:1;font-size:20px;font-family:'Beth Ellen',var(--font-body)">Instagram</span><span style="font:700 13px 'Nunito',var(--font-body);color:#4a5fc1">@captain_arthead</span></a>
     </div>
   </sc-if>
 </div>
@@ -79,7 +80,7 @@
       <button onClick="{{ mClose }}" style="background:none;border:1px solid #1a3fd6;color:#1a3fd6;border-radius:8px;min-height:44px;padding:0 14px;font:600 14px 'Nunito',var(--font-body);cursor:pointer">← Back</button>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;padding:20px 16px 20px">
-      <div style="display:flex;flex-wrap:wrap;gap:10px;font:700 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase"><span>{{ curA.n }}</span><span>{{ curA.disc }}</span><span style="color:#4a5fc1">{{ curA.year }}</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;font:700 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase"><span>{{ curA.disc }}</span><span style="color:#4a5fc1">{{ curA.year }}</span></div>
       <h1 style="margin:0;font-size:40px;font-weight:400;line-height:1.4;font-family:'Beth Ellen',var(--font-body)">{{ curA.title }}</h1>
     </div>
     <sc-if value="{{ curA.heroCover }}" hint-placeholder-val="{{ false }}"><img src="assets/versuni/cover.png" alt="STEAM-ID cover" style="display:block;width:100%;height:auto"></sc-if>
@@ -92,7 +93,6 @@
 </sc-if>
 <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
 <div style="position:fixed;inset:0;overflow:hidden;background:url('board-grid.svg') 0.5px 80.5px/160px 160px,url('canvas-weave.svg') 0 0/6px 6px,#fcfcfa">
-  <div style="position:absolute;inset:0;pointer-events:none;background:url('mat-lines.svg') 0 0/100% 100%"></div>
   <sc-if value="{{ trackOn }}" hint-placeholder-val="{{ false }}">
     <div ref="{{ trackRef }}" onPointerDown="{{ trackDown }}" aria-hidden="true" style="position:absolute;right:14px;top:41%;bottom:60px;width:20px;z-index:6;cursor:pointer;touch-action:none;opacity:{{ trackOp }};transition:opacity .35s ease" style-hover="opacity:1">
               <div style="position:absolute;left:9px;top:0;bottom:0;width:2px;border-radius:2px;background:rgba(26,63,214,.18)"></div>
@@ -100,9 +100,9 @@
             </div>
   </sc-if>
       <div ref="{{ frameA }}" style="position:absolute;left:50%;top:50%;width:1280px;height:{{ stageH }};transform:{{ stageTf }};overflow:hidden;color:#1a3fd6;font-family:'Nunito',var(--font-body)">
-        <div style="position:absolute;left:50%;bottom:-258px;width:820px;height:763px;transform:{{ headTf }};transform-origin:50% 55%;opacity:{{ headOp }};transition:transform .9s cubic-bezier(.6,0,.3,1),opacity .7s ease .25s;pointer-events:none">
+        <div style="position:absolute;left:50%;top:calc(100% - 280px);z-index:0;width:762px;height:709px;transform:{{ headTf }};transform-origin:50% 55%;opacity:{{ headOp }};transition:transform .9s cubic-bezier(.6,0,.3,1),opacity .7s ease .25s;pointer-events:none">
           
-        <svg viewBox="0 0 516 480" width="820" height="763" style="display:block;overflow:visible">
+        <svg viewBox="0 0 516 480" width="762" height="709" style="display:block;overflow:visible">
             <ellipse cx="256" cy="302" rx="142" ry="137" fill="#fcfcfa"></ellipse>
             <ellipse cx="250" cy="172" rx="116" ry="82" fill="#fcfcfa"></ellipse>
             <image href="assets/face-hd.png" x="0" y="0" width="516" height="480"></image>
@@ -112,83 +112,88 @@
             </g>
             <ellipse cx="{{ pl.x }}" cy="{{ pl.y }}" rx="9.5" ry="{{ pupRy }}" fill="#1a3fd6" style="opacity:{{ pupOp }};transition:opacity .15s"></ellipse>
             <ellipse cx="{{ pr.x }}" cy="{{ pr.y }}" rx="9.5" ry="{{ pupRy }}" fill="#1a3fd6" style="opacity:{{ pupOp }};transition:opacity .15s"></ellipse>
+            <g style="opacity:{{ mouthOp }};transition:opacity .12s"><ellipse cx="242" cy="382" rx="56" ry="28" fill="#fcfcfa"></ellipse></g>
+            <circle cx="184" cy="380" r="4.5" fill="#1a3fd6"></circle>
+            <circle cx="318" cy="380" r="4.5" fill="#1a3fd6"></circle>
+            <g transform="translate(242 382)"><g style="transform:{{ mouthTf }};transform-box:fill-box;transform-origin:center;transition:transform .4s cubic-bezier(.3,1.7,.5,1)"><ellipse cx="0" cy="0" rx="17" ry="23" fill="#1a3fd6"></ellipse><ellipse cx="0" cy="5" rx="9" ry="12" fill="#fcfcfa"></ellipse></g></g>
             <g transform="{{ starL }}"><g style="transform:{{ starTf }};transform-box:fill-box;transform-origin:center;transition:transform .45s cubic-bezier(.3,1.7,.5,1)"><path d="M0 -25C3 -7 7 -3 25 0C7 3 3 7 0 25C-3 7 -7 3 -25 0C-7 -3 -3 -7 0 -25Z" fill="#1a3fd6" stroke="#1a3fd6" stroke-width="4" stroke-linejoin="round"></path></g></g>
             <g transform="{{ starR }}"><g style="transform:{{ starTf }};transform-box:fill-box;transform-origin:center;transition:transform .45s cubic-bezier(.3,1.7,.5,1)"><path d="M0 -25C3 -7 7 -3 25 0C7 3 3 7 0 25C-3 7 -7 3 -25 0C-7 -3 -3 -7 0 -25Z" fill="#1a3fd6" stroke="#1a3fd6" stroke-width="4" stroke-linejoin="round"></path></g></g>
           </svg></div>
         <div style="position:absolute;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:24px 32px;pointer-events:none">
           <div style="font-weight:400;font-size:22px;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">Jared Sim <span style="color:#4a5fc1;font-weight:400">· Product Designer, Singapore</span></div>
-          <div style="display:flex;gap:8px;font-size:14px;font-weight:700;color:#4a5fc1;pointer-events:auto"><button onClick="{{ goWork }}" style="background:{{ workBg }};border:0;color:#1a3fd6;font:700 14px 'Nunito',var(--font-body);padding:6px 12px;border-radius:999px;cursor:pointer" style-hover="background:#eef1fd">Work</button><button onClick="{{ goAbout }}" style="background:{{ aboutBg }};border:0;color:#1a3fd6;font:700 14px 'Nunito',var(--font-body);padding:6px 12px;border-radius:999px;cursor:pointer" style-hover="background:#eef1fd">About</button><button onClick="{{ goContact }}" style="background:{{ contactBg }};border:0;color:#1a3fd6;font:700 14px 'Nunito',var(--font-body);padding:6px 12px;border-radius:999px;cursor:pointer" style-hover="background:#eef1fd">Contact</button></div>
+          <div style="display:flex;gap:28px;align-items:center;pointer-events:auto"><button onClick="{{ goWork }}" style="background:none;border:0;padding:2px 2px 4px;color:{{ workFg }};font-size:22px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);cursor:pointer;white-space:nowrap;transition:color .2s" style-hover="color:#1a3fd6">Work</button><button onClick="{{ goAbout }}" style="background:none;border:0;padding:2px 2px 4px;color:{{ aboutFg }};font-size:22px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);cursor:pointer;white-space:nowrap;transition:color .2s" style-hover="color:#1a3fd6">About</button><button onClick="{{ goContact }}" style="background:none;border:0;padding:2px 2px 4px;color:{{ contactFg }};font-size:22px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);cursor:pointer;white-space:nowrap;transition:color .2s" style-hover="color:#1a3fd6">Contact</button></div>
         </div>
         <sc-if value="{{ aCats }}" hint-placeholder-val="{{ true }}">
         <div style="position:absolute;inset:0;opacity:{{ aFade }};transition:opacity .7s ease .25s;pointer-events:{{ aPe }}">
-          <div style="position:absolute;left:50%;top:96px;width:480px;transform:translateX(-50%);opacity:{{ introOp }};transition:opacity .35s ease;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;pointer-events:none">
-            <h1 style="margin:0;font-size:52px;font-weight:400;line-height:1.4;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">Hi, I’m Jared.</h1>
-            <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #1a3fd6; text-wrap: pretty; width: 505px; height: 106px">Welcome to my portfolio. I do… lots of design. I’m a graphic designer, a product designer, an experience designer… I wear a lot of hats across a lot of projects, so let’s just say I’m a lot of “-ers”.</p>
+          <div style="position:absolute;left:50%;top:104px;transform:translateX(-50%);z-index:6;display:flex;gap:28px;white-space:nowrap">
+            <sc-for list="{{ menuItems }}" as="c" hint-placeholder-count="5">
+              <button onClick="{{ c.pick }}" style="background:none;border:0;padding:2px 2px 4px;color:{{ c.fg }};font-size:22px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);cursor:pointer;white-space:nowrap;transition:color .2s" style-hover="color:#1a3fd6">{{ c.disc }}</button>
+            </sc-for>
           </div>
-          <div style="position:absolute;left:50%;top:96px;width:520px;transform:translateX(-50%);opacity:{{ catOp }};transition:opacity .35s ease;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;pointer-events:none">
-            <h1 style="margin: 0; font-size: 52px; font-weight: 400; line-height: 1.4; color: #1a3fd6; font-family: 'Beth Ellen',var(--font-body); width: 571px; height: 85px">{{ catHead }}</h1>
-            <p style="margin:0;font-size:17px;line-height:1.55;color:#1a3fd6;text-wrap:pretty">{{ catDesc }}</p>
+          <div style="position:absolute;left:50%;top:240px;width:320px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;pointer-events:none">
           </div>
-          <div style="position:absolute;left:50%;top:{{ ddTop }};transform:translateX(-50%);z-index:5;transition:top .5s cubic-bezier(.2,.8,.2,1)">
-            <button onClick="{{ toggleMenu }}" style="display:flex;align-items:center;gap:10px;background:#fcfcfa;border:1.5px solid #1a3fd6;color:#1a3fd6;border-radius:999px;padding:8px 18px;cursor:pointer;font-family:inherit" style-hover="background:#eef1fd">
-              <span style="font:700 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#4a5fc1">Disciplines</span>
-              <span style="font-size:20px;line-height:1.2;font-family:'Beth Ellen',var(--font-body)">{{ catLabel }}</span>
-              <span style="font-size:12px;transform:rotate({{ caretRot }});transition:transform .2s">▾</span>
-            </button>
-            <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-              <div style="position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);min-width:260px;background:#fcfcfa;border:1.5px solid #1a3fd6;border-radius:14px;padding:6px;display:flex;flex-direction:column;box-shadow:0 12px 28px -12px rgba(26,63,214,.35)">
-                <sc-for list="{{ menuItems }}" as="c" hint-placeholder-count="5">
-                  <button onClick="{{ c.pick }}" style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;text-align:left;background:{{ c.bg }};border:0;color:#1a3fd6;padding:8px 12px;border-radius:9px;cursor:pointer;font-family:inherit" style-hover="background:#eef1fd">
-                    <span style="font-size:20px;line-height:1.3;font-family:'Beth Ellen',var(--font-body)">{{ c.disc }}</span>
-                    <span style="font:700 12px ui-monospace,Menlo,monospace;color:#4a5fc1">{{ c.count }}</span>
-                  </button>
-                </sc-for>
-              </div>
-            </sc-if>
-          </div>
-          <div ref="{{ gridRef }}" onScroll="{{ onScrollA }}" style="position:absolute;left:0;right:0;top:150px;bottom:0;overflow-y:auto;scrollbar-width:none;-webkit-mask-image:{{ maskA }};mask-image:{{ maskA }}">
-            <div style="position:relative;height:{{ innerH }};margin-top:{{ innerMt }};transition:margin-top .5s cubic-bezier(.2,.8,.2,1)">
+
+          <div ref="{{ gridRef }}" onScroll="{{ onScrollA }}" style="position:absolute;left:0;right:0;top:160px;bottom:0;overflow-y:auto;scrollbar-width:none;-webkit-mask-image:{{ maskA }};mask-image:{{ maskA }}">
+            
+          <div style="position:relative;height:{{ innerH }};margin-top:{{ innerMt }};transition:margin-top .5s cubic-bezier(.2,.8,.2,1)">
               <sc-for list="{{ cardsA }}" as="p" hint-placeholder-count="4">
                 <button onClick="{{ p.open }}" onMouseEnter="{{ p.look }}" onMouseLeave="{{ p.unlook }}" style="position:absolute;left:{{ p.left }};top:{{ p.top }};width:{{ p.w }};transform:translate(-50%,-50%);transition:left .5s cubic-bezier(.2,.8,.2,1),top .5s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:8px;text-align:left;background:none;border:0;padding:6px;border-radius:8px;color:#4a5fc1;cursor:pointer;font-family:inherit" style-hover="background:#eef1fd;color:#1a3fd6">
                   <span style="position:relative;display:block;aspect-ratio:23/15;border-radius:6px;overflow:hidden;box-shadow:{{ p.edge }};background:{{ p.thumb }}">
                     
                   </span>
-                  <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px;min-width:0"><span style="font-size: {{ p.fs }}; line-height: 1.4; font-family: 'Beth Ellen',var(--font-body); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; padding: 2px 0 8px; margin: -2px 0 -8px; width: 200px; height: 45px">{{ p.title }}</span><span style="font:700 12px ui-monospace,Menlo,monospace;color:#4a5fc1;flex:none">{{ p.n }}</span></span>
+                  <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px;min-width:0"><span style="font-size: {{ p.fs }}; line-height: 1.4; font-family: 'Beth Ellen',var(--font-body); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; padding: 2px 0 8px; margin: -2px 0 -8px; width: 200px; height: 45px">{{ p.title }}</span></span>
                   <span style="margin-top:-4px;font:600 12px/1.3 'Nunito',var(--font-body);color:#4a5fc1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.tagLine }}</span>
                 </button>
               </sc-for>
-            </div>
-          </div>
+            </div></div>
         </div>
         </sc-if>
         
         <sc-if value="{{ aboutOn }}" hint-placeholder-val="{{ false }}">
-          <div style="position:absolute;right:90px;top:100px;width:280px;padding:10px 10px 36px;background:#fff;border-radius:4px;transform:rotate(2.5deg);box-shadow:0 1px 2px rgba(0,0,0,.08),0 18px 36px -20px rgba(26,63,214,.4)">
-            <img src="assets/jared-about.jpg" alt="Jared at a desk with prototypes and tools" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:2px">
-            <div style="position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:18px;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">that’s me!</div>
+          <div style="position:absolute;right:50px;top:230px;width:315px;padding:12px 12px 42px;background:#fff;border-radius:4px;transform:rotate(2.5deg);box-shadow:0 1px 2px rgba(0,0,0,.08),0 18px 36px -20px rgba(26,63,214,.4)">
+            <div onClick="{{ toggleDoodle }}" onMouseMove="{{ doodleMove }}" style="position:relative;width:100%;aspect-ratio:2/3;overflow:hidden;border-radius:2px;cursor:pointer"><img src="assets/jared-about-plain.png" alt="Jared at a desk with prototypes and tools" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.07);transform-origin:80% 40%"><img src="assets/jared-about-doodle.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.07);transform-origin:80% 40%;clip-path:{{ doodleClip }};transition:clip-path 2.6s cubic-bezier(.45,0,.25,1)"><img ref="{{ hoverRef }}" src="assets/jared-about-doodle.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.07);transform-origin:80% 40%;pointer-events:none;-webkit-mask-image:linear-gradient(transparent,transparent);mask-image:linear-gradient(transparent,transparent)"></div>
+            <div style="position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:22px;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">that’s me!</div>
           </div>
-          <div style="position:absolute;left:90px;top:104px;width:380px;display:flex;flex-direction:column;gap:14px">
-            <h1 style="margin:0;font-size:52px;font-weight:400;line-height:1.4;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">About me</h1>
-            <p style="margin:0;font-size:16px;line-height:1.6;color:#1a3fd6;text-wrap:pretty">I’m Jared, a designer based in Singapore, and I’m a lot of “-ers”. A listener and an observer first: I work closely with users to pick up the behaviours and needs they don’t say out loud. Then a communicator, an iterator and a tinkerer, testing ideas early and often until something unexpected turns up. It’s a simple way of working, but it’s how I naturally get along with people, and it lands on solutions that solve the client’s real problem without compromise.</p>
-
+          <div style="position:absolute;left:32px;top:96px;bottom:0;width:600px;overflow-y:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16px,#000 calc(100% - 60px),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 16px,#000 calc(100% - 60px),transparent 100%)">
+          <div style="display:block;padding:8px 0 80px 10px;color:#1a3fd6">
+            <div style="display:block">
+              <div style="float:right;width:590px;height:{{ aboutShapeH }};shape-outside:{{ aboutShape }};shape-margin:8px;pointer-events:none"></div>
+              <h1 style="margin:0 0 14px;font-size:60px;font-weight:400;line-height:1.4;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">About me</h1>
+              <p style="margin:0;font-size:18px;line-height:1.6;color:#1a3fd6;text-wrap:pretty">I’m Jared, a designer based in Singapore, and I’m a lot of “-ers”. A listener and an observer first: I work closely with users to pick up the behaviours and needs they don’t say out loud. Then a communicator, an iterator and a tinkerer, testing ideas early and often until something unexpected turns up. It’s a simple way of working, but it’s how I naturally get along with people, and it lands on solutions that solve the client’s real problem without compromise.</p>
+              <h2 style="margin:28px 0 8px;font-size:32px;font-weight:400;line-height:1.4;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">Experience</h2>
+              <div style="margin-left:5px;padding-left:20px;border-left:1.5px solid rgba(26,63,214,.35)">
+                <sc-for list="{{ aboutBrief }}" as="x" hint-placeholder-count="5">
+                  <div style="position:relative;padding:0 0 16px">
+                    <span style="position:absolute;left:-26.5px;top:12px;width:10px;height:10px;border-radius:50%;background:#fcfcfa;border:1.5px solid #1a3fd6;box-sizing:border-box"></span>
+                    <div style="font-size:22px;line-height:1.4;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body);padding:4px 0 6px">{{ x.org }}</div>
+                    <div style="font-size:14px;line-height:1.4;color:#4a5fc1">{{ x.role }} · {{ x.yr }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
           </div>
         </sc-if>
         <sc-if value="{{ contactOn }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute;left:50%;top:96px;width:520px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
             <h1 style="margin:0;font-size:52px;font-weight:400;line-height:1.4;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">Contact me</h1>
-            <p style="margin:0;font-size:17px;line-height:1.55;color:#1a3fd6;text-wrap:pretty">Find more of my work and get in touch here.</p>
+            
           </div>
-          <a href="https://www.linkedin.com/in/sim-jared/" target="_blank" rel="noopener" style="position:absolute;left:190px;top:420px;width:170px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;color:#4a5fc1;text-decoration:none" style-hover="background:#eef1fd;color:#1a3fd6">
+          <a href="mailto:studiojarhead@gmail.com" style="position:absolute;left:240px;top:450px;width:176px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;color:#4a5fc1;text-decoration:none" style-hover="background:#eef1fd;color:#1a3fd6">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;aspect-ratio:4/3;border-radius:6px;border:1px solid rgba(26,63,214,.35);background:#fcfcfa"><span style="width:52px;height:52px;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/regular/envelope.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/regular/envelope.svg') center/contain no-repeat"></span><span style="font:700 12px 'Nunito',var(--font-body);color:#4a5fc1">studiojarhead@gmail.com</span></span>
+            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span style="font-size:19px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);white-space:nowrap;padding:2px 0 8px;margin:-2px 0 -8px">Email</span></span>
+          </a>
+          <a href="https://www.linkedin.com/in/sim-jared/" target="_blank" rel="noopener" style="position:absolute;left:335px;top:250px;width:176px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;color:#4a5fc1;text-decoration:none" style-hover="background:#eef1fd;color:#1a3fd6">
             <span style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;aspect-ratio:4/3;border-radius:6px;border:1px solid rgba(26,63,214,.35);background:#fcfcfa"><span style="width:52px;height:52px;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/linkedin.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/linkedin.svg') center/contain no-repeat"></span><span style="font:700 12px 'Nunito',var(--font-body);color:#4a5fc1">sim-jared</span></span>
-            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span style="font-size:19px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);white-space:nowrap;padding:2px 0 8px;margin:-2px 0 -8px">LinkedIn</span><span style="font:700 12px ui-monospace,Menlo,monospace;flex:none">01</span></span>
+            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span style="font-size:19px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);white-space:nowrap;padding:2px 0 8px;margin:-2px 0 -8px">LinkedIn</span></span>
           </a>
-          <a href="https://www.instagram.com/captain_arthead/" target="_blank" rel="noopener" style="position:absolute;left:640px;top:310px;width:170px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;color:#4a5fc1;text-decoration:none" style-hover="background:#eef1fd;color:#1a3fd6">
-            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;aspect-ratio:4/3;border-radius:6px;border:1px solid rgba(26,63,214,.35);background:#fcfcfa"><span style="width:52px;height:52px;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat"></span><span style="font:700 12px 'Nunito',var(--font-body);color:#4a5fc1">@captain_arthead</span></span>
-            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span style="font-size:19px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);white-space:nowrap;padding:2px 0 8px;margin:-2px 0 -8px">Instagram</span><span style="font:700 12px ui-monospace,Menlo,monospace;flex:none">02</span></span>
-          </a>
-          <a href="https://www.behance.net/jaredsim1" target="_blank" rel="noopener" style="position:absolute;left:1090px;top:420px;width:170px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;color:#4a5fc1;text-decoration:none" style-hover="background:#eef1fd;color:#1a3fd6">
+          <a href="https://www.behance.net/jaredsim1" target="_blank" rel="noopener" style="position:absolute;left:930px;top:250px;width:176px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;color:#4a5fc1;text-decoration:none" style-hover="background:#eef1fd;color:#1a3fd6">
             <span style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;aspect-ratio:4/3;border-radius:6px;border:1px solid rgba(26,63,214,.35);background:#fcfcfa"><span style="width:52px;height:52px;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/behance.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/behance.svg') center/contain no-repeat"></span><span style="font:700 12px 'Nunito',var(--font-body);color:#4a5fc1">jaredsim1</span></span>
-            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span style="font-size:19px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);white-space:nowrap;padding:2px 0 8px;margin:-2px 0 -8px">Behance</span><span style="font:700 12px ui-monospace,Menlo,monospace;flex:none">03</span></span>
+            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span style="font-size:19px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);white-space:nowrap;padding:2px 0 8px;margin:-2px 0 -8px">Behance</span></span>
+          </a>
+          <a href="https://www.instagram.com/captain_arthead/" target="_blank" rel="noopener" style="position:absolute;left:1025px;top:450px;width:176px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;color:#4a5fc1;text-decoration:none" style-hover="background:#eef1fd;color:#1a3fd6">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;aspect-ratio:4/3;border-radius:6px;border:1px solid rgba(26,63,214,.35);background:#fcfcfa"><span style="width:52px;height:52px;background:#1a3fd6;-webkit-mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat;mask:url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/svgs/brands/instagram.svg') center/contain no-repeat"></span><span style="font:700 12px 'Nunito',var(--font-body);color:#4a5fc1">@captain_arthead</span></span>
+            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span style="font-size:19px;line-height:1.4;font-family:'Beth Ellen',var(--font-body);white-space:nowrap;padding:2px 0 8px;margin:-2px 0 -8px">Instagram</span></span>
           </a>
         </sc-if>
         <sc-if value="{{ aDetail }}" hint-placeholder-val="{{ false }}">
@@ -197,7 +202,7 @@
               <div style="margin:96px 0 0;display:flex;flex-direction:column;gap:32px">
                 <div style="display:flex;flex-direction:column;gap:18px;padding:32px 90px 0">
                   <button onClick="{{ closeA }}" style="align-self:flex-start;background:none;border:1px solid #1a3fd6;color:#1a3fd6;border-radius:8px;padding:8px 14px;font:600 13px 'Nunito',var(--font-body);cursor:pointer" style-hover="background:#eef1fd">← Back out</button>
-                  <div style="display:flex;gap:12px;font:700 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#1a3fd6"><span>{{ curA.n }}</span><span>{{ curA.disc }}</span><span style="color:#4a5fc1">{{ curA.year }}</span></div>
+                  <div style="display:flex;gap:12px;font:700 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#1a3fd6"><span>{{ curA.disc }}</span><span style="color:#4a5fc1">{{ curA.year }}</span></div>
                   <h1 style="margin:0;font-size:60px;font-weight:400;line-height:1.4;letter-spacing:0;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">{{ curA.title }}</h1>
                 </div>
                 <sc-if value="{{ curA.heroCover }}" hint-placeholder-val="{{ false }}"><img src="assets/versuni/cover.png" alt="STEAM-ID cover" style="display:block;width:100%;height:auto;margin-bottom:-32px"></sc-if>
@@ -213,7 +218,7 @@
             <sc-if value="{{ notSteam }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute;left:32px;top:96px;bottom:32px;width:480px;display:flex;flex-direction:column;gap:18px">
             <button onClick="{{ closeA }}" style="align-self:flex-start;background:none;border:1px solid #1a3fd6;color:#1a3fd6;border-radius:8px;padding:8px 14px;font:600 13px 'Nunito',var(--font-body);cursor:pointer" style-hover="background:#eef1fd">← Back out</button>
-            <div style="display:flex;gap:12px;font:700 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#1a3fd6"><span>{{ curA.n }}</span><span>{{ curA.disc }}</span><span style="color:#4a5fc1">{{ curA.year }}</span></div>
+            <div style="display:flex;gap:12px;font:700 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#1a3fd6"><span>{{ curA.disc }}</span><span style="color:#4a5fc1">{{ curA.year }}</span></div>
             <h1 style="margin:0;font-size:60px;font-weight:400;letter-spacing:0;color:#1a3fd6;font-family:'Beth Ellen',var(--font-body)">{{ curA.title }}</h1>
             <div style="flex:1;min-height:0;border-radius:8px;background:repeating-linear-gradient(135deg,rgba(26,63,214,.14) 0 8px,rgba(26,63,214,.06) 8px 16px);display:flex;align-items:flex-end;padding:12px;font:11px ui-monospace,Menlo,monospace;color:#4a5fc1">project hero image</div>
             <div style="font:11px ui-monospace,Menlo,monospace;color:#4a5fc1">[ brief, role, outcome ]</div>
@@ -242,7 +247,7 @@ class Component extends DCLogic {
     this.ev('head:pose', { id: 'd', x: 0 }); this.ev('head:look', { id: 'd', at: null });
   }
   state = { catA: null, ringOn: false, panel: null, activeB: 0, chapter: 0, diveA: null, detailA: false, lobe: 'frontal', diveB: null, detailB: false };
-  lobesDef = { frontal: { disc: 'UI / UX', region: 'Frontal lobe' }, parietal: { disc: 'Brand / graphic', region: 'Parietal lobe' }, temporal: { disc: 'Brand / graphic', region: 'Temporal lobe' }, occipital: { disc: 'Industrial', region: 'Occipital lobe' } };
+  lobesDef = { frontal: { disc: 'UI / UX', region: 'Frontal lobe' }, parietal: { disc: 'Brand / graphic', region: 'Parietal lobe' }, temporal: { disc: 'Brand / graphic', region: 'Temporal lobe' }, occipital: { disc: 'Product', region: 'Occipital lobe' } };
   diveIn(id, i, sk, dk) {
     clearTimeout(this['t' + id]); clearTimeout(this.tHype);
     const hype = id === 'd', H = hype ? 750 : 0;
@@ -259,17 +264,17 @@ class Component extends DCLogic {
   }
   refC = React.createRef();
   projects = [
-    { n: '01', title: 'STEAM-ID', disc: 'UI / UX', year: 'Versuni', cover: 'assets/versuni/cover4.png', slug: 'steam', pdf: 'assets/versuni/case-study.pdf', heroCover: true, tags: ['Industrial'] },
+    { n: '01', title: 'STEAM-ID', disc: 'UI / UX', year: 'Versuni', cover: 'assets/versuni/cover4.png', slug: 'steam', pdf: 'assets/versuni/case-study.pdf', heroCover: true, tags: ['Product'] },
     { n: '02', title: 'SIP Game', disc: 'UI / UX', year: 'Ministry of Manpower', cover: 'assets/sip/cover2.png', slug: 'sip', pdf: 'assets/sip/case-study.pdf', tags: ['Brand / graphic'] },
     { n: '05', title: 'Studio Kero', disc: 'Brand / graphic', year: 'Brand identity', cover: 'assets/kero/cover-v3.png', slug: 'kero', pdf: 'assets/kero/00.pdf,assets/kero/01.pdf,assets/kero/02.pdf,assets/kero/03.pdf,assets/kero/04.pdf,assets/kero/05.pdf,assets/kero/06.pdf,assets/kero/07.pdf,assets/kero/08.pdf,assets/kero/09.pdf,assets/kero/10.pdf,assets/kero/11.pdf' },
-    { n: '13', title: 'Path X', disc: 'Industrial', year: 'Enabling Village', cover: 'assets/streamline/cover-1.png', slug: 'pathx', pdf: 'assets/streamline/case-study.pdf', tags: ['UI / UX'] },
-    { n: '14', title: 'The Pebble', disc: 'Industrial', year: 'Microtube × NUS-H', cover: 'assets/restructure/cover4.png', slug: 'pebble', pdf: 'assets/restructure/case-study-v2.pdf', lead: 'assets/restructure/cover4.png', tags: ['UI / UX'] },
-    { n: '15', title: 'Lightcase', disc: 'Industrial', year: 'Modular luggage', cover: 'assets/proj15/cover2.png', slug: 'lightcase', pdf: 'assets/proj15/deck.pdf', replace: '8=assets/proj15/slide8.html' },
-    { n: '16', title: 'TRIACT', disc: 'Industrial', year: 'SCDF Lifesavers', cover: 'assets/proj16/cover5.png', slug: 'triact', pdf: 'assets/proj16/deck.pdf' },
-    { n: '17', title: 'Pentone', disc: 'Industrial', year: 'Biophilic cat bed', cover: 'assets/pentone/cover2.png', slug: 'pentone', pdf: 'assets/pentone/01.png,assets/pentone/02.png,assets/pentone/03.png,assets/pentone/04.png,assets/pentone/05.png,assets/pentone/06.png,assets/pentone/07.png,assets/pentone/08.png,assets/pentone/09.png,assets/pentone/10.png,assets/pentone/11.png,assets/pentone/12.png,assets/pentone/13.png,assets/pentone/14.png,assets/pentone/15.png,assets/pentone/16.png,assets/pentone/17.png,assets/pentone/18.png,assets/pentone/19.png,assets/pentone/20.png,assets/pentone/21.png' },
-    { n: '18', title: 'Meowneki', disc: 'Industrial', year: 'Lucky-cat toy', cover: 'assets/meowneki/cover.png', slug: 'meowneki', pdf: 'assets/meowneki/01.png,assets/meowneki/02.png,assets/meowneki/03.png,assets/meowneki/04.png,assets/meowneki/05.png,assets/meowneki/06.png,assets/meowneki/07.png,assets/meowneki/08.png,assets/meowneki/09.png,assets/meowneki/10.png,assets/meowneki/11.png,assets/meowneki/12.png,assets/meowneki/13.png,assets/meowneki/14.png,assets/meowneki/15.png,assets/meowneki/16.png,assets/meowneki/17.png,assets/meowneki/18.png,assets/meowneki/19.png' },
-    { n: '19', title: 'Stack', disc: 'Interaction design', year: 'Interactive ceramics', cover: 'assets/stack/cover3.png', slug: 'stack', pdf: 'assets/stack/01.png,assets/stack/02.png,assets/stack/03.png,assets/stack/04.png,assets/stack/05.png,assets/stack/06.png,assets/stack/07.png,assets/stack/08.png' },
-    { n: '20', title: 'BareBone', disc: 'Industrial', year: 'Speakers', cover: 'assets/barebone/01.png', slug: 'barebone', pdf: 'assets/barebone/01.png,assets/barebone/02.png,assets/barebone/03.png,assets/barebone/04.png,assets/barebone/05.png,assets/barebone/06.png,assets/barebone/07.png,assets/barebone/08.png,assets/barebone/09.png,assets/barebone/10.png,assets/barebone/11.png,assets/barebone/12.png,assets/barebone/13.png,assets/barebone/14.png,assets/barebone/15.png' },
+    { n: '13', title: 'Path X', disc: 'Product', year: 'Enabling Village', cover: 'assets/streamline/cover-1.png', slug: 'pathx', pdf: 'assets/streamline/case-study.pdf', tags: ['UI / UX'] },
+    { n: '14', title: 'The Pebble', disc: 'Product', year: 'Microtube × NUS-H', cover: 'assets/restructure/cover4.png', slug: 'pebble', pdf: 'assets/restructure/case-study-v2.pdf', lead: 'assets/restructure/cover4.png', tags: ['UI / UX'] },
+    { n: '15', title: 'Lightcase', disc: 'Product', year: 'Modular luggage', cover: 'assets/proj15/cover2.png', slug: 'lightcase', pdf: 'assets/proj15/deck.pdf', replace: '8=assets/proj15/slide8.html' },
+    { n: '16', title: 'TRIACT', disc: 'Product', year: 'SCDF Lifesavers', cover: 'assets/proj16/cover5.png', slug: 'triact', pdf: 'assets/proj16/deck.pdf' },
+    { n: '17', title: 'Pentone', disc: 'Product', year: 'Biophilic cat bed', cover: 'assets/pentone/cover2.png', slug: 'pentone', pdf: 'assets/pentone/01.png,assets/pentone/02.png,assets/pentone/03.png,assets/pentone/04.png,assets/pentone/05.png,assets/pentone/06.png,assets/pentone/07.png,assets/pentone/08.png,assets/pentone/09.png,assets/pentone/10.png,assets/pentone/11.png,assets/pentone/12.png,assets/pentone/13.png,assets/pentone/14.png,assets/pentone/15.png,assets/pentone/16.png,assets/pentone/17.png,assets/pentone/18.png,assets/pentone/19.png,assets/pentone/20.png,assets/pentone/21.png' },
+    { n: '18', title: 'Meowneki', disc: 'Product', year: 'Lucky-cat toy', cover: 'assets/meowneki/cover.png', slug: 'meowneki', pdf: 'assets/meowneki/01.png,assets/meowneki/02.png,assets/meowneki/03.png,assets/meowneki/04.png,assets/meowneki/05.png,assets/meowneki/06.png,assets/meowneki/07.png,assets/meowneki/08.png,assets/meowneki/09.png,assets/meowneki/10.png,assets/meowneki/11.png,assets/meowneki/12.png,assets/meowneki/13.png,assets/meowneki/14.png,assets/meowneki/15.png,assets/meowneki/16.png,assets/meowneki/17.png,assets/meowneki/18.png,assets/meowneki/19.png' },
+    { n: '19', title: 'Stack', disc: 'Product', year: 'Interactive ceramics', cover: 'assets/stack/cover3.png', slug: 'stack', pdf: 'assets/stack/01.png,assets/stack/02.png,assets/stack/03.png,assets/stack/04.png,assets/stack/05.png,assets/stack/06.png,assets/stack/07.png,assets/stack/08.png' },
+    { n: '20', title: 'BareBone', disc: 'Product', year: 'Speakers', cover: 'assets/barebone/01.png', slug: 'barebone', pdf: 'assets/barebone/01.png,assets/barebone/02.png,assets/barebone/03.png,assets/barebone/04.png,assets/barebone/05.png,assets/barebone/06.png,assets/barebone/07.png,assets/barebone/08.png,assets/barebone/09.png,assets/barebone/10.png,assets/barebone/11.png,assets/barebone/12.png,assets/barebone/13.png,assets/barebone/14.png,assets/barebone/15.png' },
     { n: '21', title: 'Betaspray', disc: 'Brand / graphic', year: 'Brand style guide', cover: 'assets/betaspray/v2-01.png', slug: 'betaspray', pdf: 'assets/betaspray/v2-01.png,assets/betaspray/v2-02.png,assets/betaspray/v2-03.png,assets/betaspray/v2-04.png,assets/betaspray/v2-05.png,assets/betaspray/v2-06.png,assets/betaspray/v2-07.png,assets/betaspray/v2-08.png,assets/betaspray/v2-09.png,assets/betaspray/v2-10.png,assets/betaspray/v2-11.png,assets/betaspray/v2-12.png' },
     { n: '22', title: 'Future of Aged Care', disc: 'UI / UX', year: 'Peacehaven Nursing Home', cover: 'assets/anon/cover.png', slug: 'agedcare', pdf: 'assets/anon/case-study.pdf', replace: '3=assets/anon/slide03.png,12=assets/anon/slide12.html' },
   ];
@@ -277,7 +282,7 @@ class Component extends DCLogic {
   chaptersDef = [
     { key: 'eyes', disc: 'UI / UX', region: 'Face', y: 0 },
     { key: 'earR', disc: 'Brand / graphic', region: 'Right ear', y: -90 },
-    { key: 'back', disc: 'Industrial', region: 'Back', y: -180 },
+    { key: 'back', disc: 'Product', region: 'Back', y: -180 },
     { key: 'earL', disc: 'Brand / graphic', region: 'Left ear', y: -270 }
   ];
   rot(id, y, active) { window.dispatchEvent(new CustomEvent('head:rotate', { detail: { id, y, active } })); }
@@ -297,10 +302,10 @@ class Component extends DCLogic {
     return ['barebone', 'betaspray', 'agedcare', 'steam'].map(s => this.projects.findIndex(p => p.slug === s || (s === 'steam' && /versuni/i.test(p.year + p.title)))).filter(i => i >= 0);
   }
   catCopy = {
-    all: { head: 'All the -ers.', desc: 'Every project in one place: apps, identities, print and objects. Pick any one to see how it came together.' },
-    'UI / UX': { head: 'UI / UX', desc: 'Apps and digital tools, from the first user interview to the shipped screen. I care most about the parts people use every day.' },
-    'Brand / graphic': { head: 'Brand / graphic', desc: 'Names, marks, posters and publications: identity systems that hold together wherever they show up, and layouts where type and grid do most of the talking.' },
-    'Industrial': { head: 'Industrial', desc: 'Physical products, from sketch and foam model to 3D-printed prototype and final part.' }
+    all: { head: 'All the -ers.', desc: 'Every project in one place: apps, identities, print and physical objects. Open any one to see how it came together, from first sketch to the final piece.' },
+    'UI / UX': { head: 'UI / UX', desc: 'Apps, websites and digital tools, from the very first user interview to the final shipped screen. I care most about the parts people use every day.' },
+    'Brand / graphic': { head: 'Brand / graphic', desc: 'Names, marks, posters and publications: identity systems that hold up wherever they appear, and layouts where type and grid do all of the talking.' },
+    'Product': { head: 'Product', desc: 'Things you can pick up, carry and use. I sketch, model and prototype by hand until each object feels right, then take it all the way to production.' }
   };
   // Mirrored slots around x=640. Each pair is [offset from centre, y]; an odd count puts one card dead centre on top.
   slotsA() {
@@ -311,7 +316,7 @@ class Component extends DCLogic {
   }
   frameA = React.createRef();
   cardA(p, [x, y]) {
-    const sh = { 'UI / UX': 'UX', 'Brand / graphic': 'Graphic', 'Industrial': 'Industrial' };
+    const sh = { 'UI / UX': 'UX', 'Brand / graphic': 'Graphic', 'Product': 'Product' };
     const big = true;
     return { ...p, left: x + 'px', top: y + 'px', w: big ? '426px' : '170px', fs: big ? '26px' : '19px',
       tagLine: [p.disc, ...(p.tags || [])].map(d => sh[d] || d).join(' · '),
@@ -334,7 +339,7 @@ class Component extends DCLogic {
   }
   allTop = ['barebone', 'steam', 'meowneki', 'betaspray'];
   allEnd = ['pebble'];
-  discOrder = { 'Industrial': ['barebone', 'pathx', 'lightcase', 'meowneki', 'triact', 'pentone', 'pebble'] };
+  discOrder = { 'Product': ['barebone', 'pathx', 'lightcase', 'meowneki', 'triact', 'pentone', 'pebble'] };
   discIdx(d) {
     const idx = this.projects.map((p, i) => i).filter(i => this.projects[i].disc === d), ord = this.discOrder[d];
     if (!ord) return idx;
@@ -424,7 +429,27 @@ class Component extends DCLogic {
     window.removeEventListener('head:hotspot', this.onSpot);
     window.removeEventListener('head:ready', this.onReady);
   }
+  hoverRef = React.createRef();
+  trail = [];
+  onDoodleMove(e) {
+    if (this.state.doodle) return;
+    const el = e.currentTarget, x = e.nativeEvent.offsetX + (e.target === el ? 0 : 0), y = e.nativeEvent.offsetY;
+    const w = el.offsetWidth, last = this.trail[this.trail.length - 1];
+    if (last && Math.hypot(last.x - x, last.y - y) < w * 0.03) { last.t = performance.now(); return; }
+    this.trail.push({ x, y, t: performance.now(), r: w * 0.09 });
+    if (this.trail.length > 60) this.trail.shift();
+    if (!this.rafT) this.rafT = setTimeout(this.tickTrail, 16);
+  }
+  tickTrail = () => {
+    const el = this.hoverRef.current, now = performance.now();
+    this.trail = this.trail.filter(p => now - p.t < 800);
+    if (!el || this.state.doodle) { this.trail = []; }
+    const m = this.trail.length ? this.trail.map(p => { const age = now - p.t, a = age < 250 ? 1 : 1 - (age - 250) / 550; return 'radial-gradient(circle ' + p.r.toFixed(0) + 'px at ' + p.x.toFixed(0) + 'px ' + p.y.toFixed(0) + 'px, rgba(0,0,0,' + a.toFixed(2) + ') 0%, rgba(0,0,0,' + (a * 0.7).toFixed(2) + ') 45%, transparent 100%)'; }).join(',') : 'linear-gradient(transparent,transparent)';
+    if (el) { el.style.webkitMaskImage = m; el.style.maskImage = m; }
+    this.rafT = this.trail.length ? setTimeout(this.tickTrail, 16) : null;
+  };
   goPage(page) {
+    this.trail = []; if (this.state.doodle) this.setState({ doodle: false });
     if (this.state.diveA != null) this.diveOut('d', 'diveA', 'detailA');
     this.setState({ page, menuOpen: false }); this.ev('head:look', { id: 'd', at: null });
   }
@@ -435,30 +460,52 @@ class Component extends DCLogic {
     const lobeItems = this.projects.map((p, i) => ({ ...p, i })).filter(p => p.disc === L.disc).map(p => ({ ...p, open: () => this.diveIn('e', p.i, 'diveB', 'detailB') }));
     const aShow = diveA == null || !detailA;
     const aGone = diveA != null && !!this.state.zoomA;
-    const mob = !!this.state.mobile, sh = { 'UI / UX': 'UX', 'Brand / graphic': 'Graphic', 'Industrial': 'Industrial' };
-    const mCopy = this.state.catA ? (this.catCopy[this.state.catA] || { head: this.state.catA, desc: '' }) : { head: 'Hi, I’m Jared.', desc: 'Welcome to my portfolio. I do… lots of design. I’m a graphic designer, a product designer, an experience designer… I wear a lot of hats across a lot of projects, so let’s just say I’m a lot of “-ers”.' };
+    const mob = !!this.state.mobile, sh = { 'UI / UX': 'UX', 'Brand / graphic': 'Graphic', 'Product': 'Product' };
+    const mCopy = this.state.catA ? (this.catCopy[this.state.catA] || { head: this.state.catA, desc: '' }) : { head: 'Hi, I’m Jared.', desc: 'Welcome to my portfolio. I do a bit of everything. Graphic designer, product designer, experience designer… so let’s just say that I’m a lot of “-ers”.' };
     const extra = {
       isMobile: mob, notMobile: !mob,
+      doodleClip: this.state.doodle ? 'circle(150% at 50% 38%)' : 'circle(0% at 50% 38%)', toggleDoodle: () => { if (this.state.doodle) return; clearTimeout(this.tHype); this.setState({ doodle: true }); this.tHype = setTimeout(() => { this.setState({ hype: true }); this.tHype = setTimeout(() => this.setState({ hype: false }), 2600); }, 1000); },
+      hoverRef: this.hoverRef, doodleMove: e => this.onDoodleMove(e),
       mWork: !this.state.page, mAbout: this.state.page === 'about', mContact: this.state.page === 'contact',
-      mHead: mCopy.head, mDesc: mCopy.desc,
+      mHead: mCopy.head, mDesc: mCopy.desc, mDescLast: 'justify',
       mDetail: mob && diveA != null,
       mClose: () => this.setState({ diveA: null, detailA: false }),
-      mChips: [null, 'all', 'UI / UX', 'Brand / graphic', 'Industrial', 'Interaction design'].map(d => {
+      mChips: [null, 'Product', 'Brand / graphic', 'UI / UX', 'all'].map(d => {
         const on = (this.state.catA || null) === d;
         return { disc: d === 'all' ? 'All' : (d || 'Featured'), count: String(!d ? this.featIdx.length : d === 'all' ? this.mixedIdx.length : this.projects.filter(p => p.disc === d).length).padStart(2, '0'),
-          bg: on ? '#1a3fd6' : 'transparent', fg: on ? '#fcfcfa' : '#1a3fd6', pick: () => this.setState({ catA: d }) };
+          bg: 'transparent', fg: on ? '#1a3fd6' : '#7f8dd6', pick: () => this.setState({ catA: d }) };
       }),
       mCards: mob ? this.orderA().map(p => ({ ...p, tagLine: [p.disc, ...(p.tags || [])].map(d => sh[d] || d).join(' · ') + ' · ' + p.year,
         thumb: `url('${p.cover}') 38% 50%/cover no-repeat, #f1f1f1`,
         open: () => this.setState({ diveA: p.i, detailA: true }) })) : [],
       aFade: aGone ? 0 : 1, aPe: aGone ? 'none' : 'auto',
+      aboutExp: [
+        { when: 'Jan 2026 – Present', role: 'Freelance Brand / Graphic Designer', org: 'Self-employed' },
+        { when: 'May 2026 – Aug 2026', role: 'User Experience Research Intern', org: 'Ministry of Manpower' },
+        { when: 'Aug 2025 – Jan 2026', role: 'User Experience Research Intern', org: 'Versuni (Philips Domestic Appliances)' },
+        { when: 'Jul 2025 – Aug 2025', role: 'Design Team Intern', org: 'CushCush' },
+        { when: 'Jan 2025 – Jun 2025', role: 'Merchandise Design and Marketing Intern', org: 'Petmusestudio' },
+        { when: 'May 2024 – Aug 2024', role: 'Design Team Intern', org: 'Microtube Technologies' }
+      ],
+      aboutBrief: [
+        { yr: 'May 2026', org: 'Ministry of Manpower', role: 'UX Research Intern' },
+        { yr: 'Aug 2025', org: 'Versuni (formerly Philips)', role: 'UX Research Intern' },
+        { yr: 'Jul 2025', org: 'CushCush', role: 'Design Intern' },
+        { yr: 'Jan 2025', org: 'Petmusestudio', role: 'Marketing and Product Design Intern' },
+        { yr: 'May 2024', org: 'Microtube Technologies', role: 'Design Intern' }
+      ],
+      aboutEdu: [
+        { when: 'Jan 2022 – Present', role: 'Bachelor of Arts in Industrial Design', org: 'National University of Singapore' },
+        { when: 'Jan 2018 – Dec 2019', role: 'GCE A Levels', org: 'Anglo-Chinese Junior College' }
+      ],
       aCats: aShow && !this.state.page, aboutOn: this.state.page === 'about' && aShow, contactOn: this.state.page === 'contact' && aShow,
+      workFg: !this.state.page ? '#1a3fd6' : '#7f8dd6', aboutFg: this.state.page === 'about' ? '#1a3fd6' : '#7f8dd6', contactFg: this.state.page === 'contact' ? '#1a3fd6' : '#7f8dd6',
       workBg: !this.state.page ? '#eef1fd' : 'transparent', aboutBg: this.state.page === 'about' ? '#eef1fd' : 'transparent', contactBg: this.state.page === 'contact' ? '#eef1fd' : 'transparent',
       goAbout: () => this.goPage('about'), goContact: () => this.goPage('contact'), goWork: () => this.goPage(null), aRing: !!this.state.catA && aShow, catA: this.state.catA,
       aDetail: detailA, curA: diveA != null ? this.projects[diveA] : {},
       isSteam: diveA != null && !!this.projects[diveA].pdf,
       notSteam: diveA != null && !this.projects[diveA].pdf,
-      catsA: ['UI / UX', 'Brand / graphic', 'Industrial', 'Interaction design'].map((d, i) => ({
+      catsA: ['UI / UX', 'Brand / graphic', 'Product'].map((d, i) => ({
         disc: d, idx: String(i + 1).padStart(2, '0'), count: String(this.projects.filter(p => p.disc === d).length).padStart(2, '0'), pick: () => this.pickCat(d)
       })),
       ringA: (() => {
@@ -493,9 +540,9 @@ class Component extends DCLogic {
       catOp: this.state.catA ? 1 : 0,
       catHead: (this.catCopy[this.state.catA] || this.catCopy.all).head,
       catDesc: (this.catCopy[this.state.catA] || this.catCopy.all).desc,
-      ddTop: '300px',
-      innerMt: '137px',
-      maskA: (() => { const a = 137; return `linear-gradient(to bottom,transparent 0,transparent ${a}px,#000 ${a + 50}px,#000 calc(100% - 30px),transparent 100%)`; })(),
+      ddTop: '84px',
+      innerMt: '0px',
+      maskA: (() => { const a = -26; return `linear-gradient(to bottom,transparent 0,transparent ${a}px,#000 ${a + 50}px,#000 calc(100% - 30px),transparent 100%)`; })(),
       sectionsA: (() => {
         const mk = (p, i) => ({ ...p,
           open: () => { this.ev('head:look', { id: 'd', at: null }); this.setState({ menuOpen: false }); this.diveIn('d', i, 'diveA', 'detailA'); },
@@ -515,11 +562,16 @@ class Component extends DCLogic {
         return [split(c, this.discIdx(c))];
       })(),
       menuOpen: !!this.state.menuOpen,
+      get catRows() { const m = this.menuItems; return [{ items: [m[0]] }, { items: [m[1], m[2]] }, { items: [m[3], m[4]] }]; },
       caretRot: this.state.menuOpen ? '180deg' : '0deg',
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
-      menuItems: [null, 'all', 'UI / UX', 'Brand / graphic', 'Industrial', 'Interaction design'].map(d => ({
+      menuItems: [null, 'Product', 'Brand / graphic', 'UI / UX', 'all'].map(d => ({
         disc: d === 'all' ? 'All' : (d || 'Featured'), count: String(!d ? this.featIdx.length : d === 'all' ? this.mixedIdx.length : this.projects.filter(p => p.disc === d).length).padStart(2, '0'),
         bg: (this.state.catA || null) === d ? '#eef1fd' : 'transparent',
+        fg: (this.state.catA || null) === d ? '#1a3fd6' : '#7f8dd6',
+        ul: (this.state.catA || null) === d ? 'underline' : 'none',
+        ...(({ null: { x: '50%', y: '30%' }, all: { x: '37%', y: '48%' }, 'UI / UX': { x: '63%', y: '48%' }, 'Brand / graphic': { x: '31%', y: '64%' }, 'Product': { x: '73%', y: '64%' } })[d] || {}),
+        fs: !d ? '28px' : (this.state.catA || null) === d ? '23px' : '21px',
         pick: () => this.setState({ catA: d, menuOpen: false })
       })),
       innerH: (() => { const sl = this.slotsA(); return (sl.length ? Math.max(...sl.map(s => s[1])) + 175 + 24 : 300) + 'px'; })(),
@@ -532,24 +584,28 @@ class Component extends DCLogic {
     };
     const n = this.projects.length;
     const p = panel && this.panels[panel];
-    const LK = this.state.look || this.look, blinking = !!this.state.blink;
+    const LK = this.state.look || this.look, blinking = !!this.state.blink, HT = (this.state.stageH || 800) - 505;
     const pupil = (cx, cy) => {
-      const k = 820 / 516, fx = 230 + cx * k, fy = 295 + cy * k, dx = LK.x - fx, dy = LK.y - fy;
+      const k = 820 / 516, fx = 230 + cx * k, fy = HT + cy * k, dx = LK.x - fx, dy = LK.y - fy;
       const nx = Math.max(-1, Math.min(1, dx / 420)), ny = Math.max(-1, Math.min(1, dy / 300));
-      return { x: cx + nx * 18, y: cy + 3 + ny * 5 + Math.abs(nx) * 2 };
+      return { x: cx + nx * 18, y: cy + 3 + (ny < 0 ? ny * 15 : ny * 5) + Math.abs(nx) * 2 };
     };
     const pl = pupil(186, 278), pr = pupil(282, 274);
-    const up = Math.max(0, Math.min(1, (295 + 230 * 1.59 - LK.y) / 500));
+    const up = Math.max(0, Math.min(1, (HT + 230 * 1.59 - LK.y) / 500));
     return {
       ...extra,
+      aboutShape: (() => { const d = (this.state.stageH || 800) - 800; return 'polygon(590px 0,470px ' + (100 + d) + 'px,460px ' + (111 + d) + 'px,379px ' + (172 + d) + 'px,351px ' + (241 + d) + 'px,324px ' + (317 + d) + 'px,313px ' + (379 + d) + 'px,312px ' + (469 + d) + 'px,345px ' + (470 + d) + 'px,345px ' + (900 + d) + 'px,590px ' + (900 + d) + 'px)'; return 'polygon(590px 0,583px ' + (57 + d) + 'px,448px ' + (103 + d) + 'px,379px ' + (186 + d) + 'px,324px ' + (296 + d) + 'px,310px ' + (350 + d) + 'px,306px ' + (362 + d) + 'px,560px ' + (363 + d) + 'px,560px ' + (392 + d) + 'px,430px ' + (393 + d) + 'px,412px ' + (900 + d) + 'px,590px ' + (900 + d) + 'px)'; })(),
+      aboutShapeH: (900 + (this.state.stageH || 800) - 800) + 'px',
       frameA: this.frameA, stageH: (this.state.stageH || 800) + 'px', pl, pr, stageTf: 'translate(-50%,-50%) scale(' + fitK + ')',
       pupRy: blinking ? 1.5 : 14,
-      browTf: 'translate(0 ' + (-up * 7).toFixed(1) + ')',
-      headTf: diveA != null && this.state.zoomA ? 'translateX(-50%) scale(3.4)' : 'translateX(-50%)',
+      browTf: 'translate(0 ' + (this.state.hype ? -16 : -up * 7).toFixed(1) + ')',
+      headTf: diveA != null && this.state.zoomA ? 'translate(-50%,-58%) scale(3.4)' : 'translate(-50%,-58%)',
       headOp: diveA != null && this.state.zoomA ? 0 : 1,
       starL: 'translate(' + pl.x + ' ' + pl.y + ')', starR: 'translate(' + pr.x + ' ' + pr.y + ')',
       starTf: this.state.hype ? 'scale(1) rotate(0deg)' : 'scale(0) rotate(-90deg)',
       pupOp: this.state.hype ? 0 : 1,
+      mouthOp: this.state.hype ? 1 : 0,
+      mouthTf: this.state.hype ? 'scale(1)' : 'scale(0)',
       projects: this.projects,
       total: String(n).padStart(2, '0'),
       panelOpen: !!p, panelTitle: p ? p.title : '',
